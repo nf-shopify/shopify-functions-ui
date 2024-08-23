@@ -1,9 +1,10 @@
 console.log("It's alive");
+const API_URL = "https://functions-api.shopifydemo.shop/";
 
-function fetchTest() {
-    console.log(data)
-    console.log(PORT);
-    console.log(process.env.PORT)
-  }
+async function fetchFunctions() {
+  const res = await fetch(`${BASE_URL}/functions`);
+  functionsData = await res.json();
+  console.log(functionsData);
+}
 
-  fetchTest()
+fetchFunctions();
