@@ -4,46 +4,53 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopify Functions Network Callout Simulator</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/index.js"></script>
   </head>
   <body>
+
     <h1>Shopify Functions Network Callout Simulator</h1>
+
     <form>
+
       <label for="functionType">Choose a Shopify Function:</label>
-      <br><br>
-      <select name="functionType" class="function-type">
-      </select>
-      <br><br>
+      <br /><br />
+
+      <select name="functionType" class="function-type"></select>
+      <br /><br />
+
       <label for="functionType">Choose a scenario:</label>
-      <br><br>
-      <select name="functionScenario" class="function-scenario">
-        <option value="cartValidation">Cart and Checkout Validation</option>
-        <option value="localPickup">Local Pickup Delivery Option Generator</option>
-        <option value="pickupPoint">Pickup Point Delivery Option Generator</option>
-      </select>
-      <br><br>
+      <br /><br />
+
+      <select name="functionScenario" class="function-scenario"></select>
+      <br /><br />
+
       <label for="jsonPayload">Paste JSON Payload</label>
-      <br><br>
-        <textarea name="jsonPayload" rows="20" cols="50">
-            {
-            "cart": {
-              "buyerIdentity": {
-                "email": "user@example.com",
-                "isAuthenticated": false
-              },
-              "cost": {
-                "totalAmount": {
-                  "amount": "1234.0",
-                  "currencyCode": "CAD"
-                }
-              }
-            }
-          }
-        </textarea>
-      </label>
-      <br><br>
-      <button type="submit"> Submit</button>
+      <br /><br />
+
+      <textarea
+        name="jsonPayload"
+        class="json-payload"
+        rows="10"
+        cols="50"
+      >
+      </textarea>
+      <br /><br />
+
+      <label for="responsePayload">Response</label>
+      <br /><br />
+
+      <textarea
+        name="responsePayload"
+        class="response-payload"
+        rows="10"
+        cols="50"
+      >
+      </textarea>
+      <br /><br />
+
+      <button type="submit">Submit</button>
+
     </form>
   </body>
 </html>
