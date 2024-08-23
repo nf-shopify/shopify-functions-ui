@@ -46,6 +46,7 @@ function render() {
   selectedFunction ? selectedFunction : (selectedFunction = functions[0]);
   selectedScenario ? selectedScenario : (selectedScenario = functions[0].scenarios[0]);
 
+  // for each function display an option
   functions.forEach((fun) => {
     if (fun.display) {
       const optionEl = document.createElement("option");
@@ -57,10 +58,12 @@ function render() {
     }
   });
 
+  // if a new function is selected default to the first scenario of the new function
   if (!selectedFunction.scenarios.includes(selectedScenario)){
     selectedScenario = selectedFunction.scenarios[0]
   }
 
+  // for each scenario display an option
   selectedFunction.scenarios.forEach((scenario) => {
     if (scenario.display) {
       const optionEl = document.createElement("option");
@@ -72,6 +75,7 @@ function render() {
     }
   });
 
+  // render sample payload for selected option
   jsonPayloadEl.textContent = JSON.stringify(
     selectedScenario.samplePayload,
     null,
