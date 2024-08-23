@@ -6,9 +6,12 @@ const API_URL = "https://functions-api.shopifydemo.shop";
 let functions;
 let selectedFunction;
 let selectedScenario;
+let serverResponse;
 const functionSelectEl = document.querySelector("select.function-type");
 const scenarioSelectEl = document.querySelector("select.function-scenario");
 const jsonPayloadEl = document.querySelector("textarea.json-payload");
+const responsePayloadEl = document.querySelector("textarea.response-payload");
+const submitBtn = document.querySelector("button.submit");
 
 /*----- Event Handlers ------*/
 functionSelectEl.addEventListener("change", (evt) => {
@@ -24,6 +27,8 @@ scenarioSelectEl.addEventListener("change", (evt) => {
   );
   render();
 });
+
+submitBtn.addEventListener("click", handleFormSubmit);
 
 /*----- Intalization ------*/
 fetchFunctions();
@@ -44,7 +49,9 @@ function render() {
 
   // defaulting selected options to first option if nothing has been selected
   selectedFunction ? selectedFunction : (selectedFunction = functions[0]);
-  selectedScenario ? selectedScenario : (selectedScenario = functions[0].scenarios[0]);
+  selectedScenario
+    ? selectedScenario
+    : (selectedScenario = functions[0].scenarios[0]);
 
   // for each function display an option
   functions.forEach((fun) => {
@@ -59,8 +66,8 @@ function render() {
   });
 
   // if a new function is selected default to the first scenario of the new function
-  if (!selectedFunction.scenarios.includes(selectedScenario)){
-    selectedScenario = selectedFunction.scenarios[0]
+  if (!selectedFunction.scenarios.includes(selectedScenario)) {
+    selectedScenario = selectedFunction.scenarios[0];
   }
 
   // for each scenario display an option
@@ -81,4 +88,22 @@ function render() {
     null,
     1
   );
+}
+
+/*----- Functions ------*/
+async function handleFormSubmit(evt) {
+  evt.preventDefault();
+  console.log(
+    `${API_URL}/${selectedFunction.functionEndpoint}/${selectedScenario.scenarioEndpoint}`
+  );
+  const res = await fetch(`${API_URL}/functions`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    //body: JSON.stringify({jsonPayloadEl}),
+  });
+  jsonRes = await res.json();
+  responsePayloadEl.textContent = JSON.stringify(jsonRes, null, 1);
+  render();
 }
