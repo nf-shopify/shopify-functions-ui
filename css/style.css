@@ -1,0 +1,62 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header styles */
+h1 {
+    color: #323232;
+    border-bottom: 2px solid #61affe;
+    padding-bottom: 10px;
+}
+
+/* Form styling */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+/* Labels and user interaction */
+label {
+    font-weight: bold;
+    color: #333;
+}
+
+select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* So padding does not affect width */
+}
+
+button {
+    background-color: #61affe;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a90e2;
+}
+
+/* Responsive design: Handling smaller screens */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    select, textarea, button {
+        width: 100%;
+    }
+}
