@@ -1,7 +1,7 @@
 /*----- Global Variables ------*/
 console.log("It's alive");
-//const API_URL = "https://functions-api.shopifydemo.shop";
-const API_URL = "http://localhost:8000";
+const API_URL = "https://functions-api.shopifydemo.shop";
+//const API_URL = "http://localhost:8000";
 
 /*----- State ------*/
 
