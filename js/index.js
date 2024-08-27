@@ -1,7 +1,7 @@
 /*----- Global Variables ------*/
 console.log("It's alive");
-const API_URL = "https://functions-api.shopifydemo.shop";
-//const API_URL = "http://localhost:8000";
+//const API_URL = "https://functions-api.shopifydemo.shop";
+const API_URL = "http://localhost:8000";
 
 /*----- State ------*/
 
@@ -95,7 +95,7 @@ function render() {
   });
 
   // render sample payload for selected option
-  requestPayloadEl.textContent = JSON.stringify(requestPayload, null, 1);
+  requestPayloadEl.value = JSON.stringify(requestPayload, null, 1);
 }
 
 /*----- Functions ------*/
